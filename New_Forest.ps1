@@ -1,11 +1,11 @@
-#Add Roles and Features
+#Add roles and features
 Import-Module ServerManager
 Add-WindowsFeature –Name AD-Domain-Services –IncludeAllSubFeature –IncludeManagementTools
 
-#Domain Name
+#Domain name
 $Domain_Name = 'domain_1.local'
 
-#DSRM Password
+#DSRM password
 $DSRM_password = 'P@$$w0rd'
 
 $Netbios = $Domain_Name.ToUpper().Split(".")[0]
