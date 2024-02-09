@@ -22,7 +22,7 @@ Import-Module ADDSDeployment
 Install-ADDSDomain `
 -NoGlobalCatalog:$false `
 -CreateDnsDelegation:$false `
--Credential (Get-Credential Administrator@$Parent_Domain) `
+-Credential (Get-Credential Administrator@$Root_Domain) `
 -DatabasePath "C:\Windows\NTDS" `
 -DomainMode "WinThreshold" `
 -DomainType "TreeDomain" `
@@ -30,7 +30,7 @@ Install-ADDSDomain `
 -LogPath "C:\Windows\NTDS" `
 -NewDomainName $Domain_Name `
 -NewDomainNetbiosName $Netbios `
--ParentDomainName $Parent_Domain `
+-ParentDomainName $Root_Domain `
 -NoRebootOnCompletion:$false `
 -SiteName $SiteName `
 -SysvolPath "C:\Windows\SYSVOL" `
