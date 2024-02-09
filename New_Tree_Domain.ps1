@@ -20,19 +20,19 @@ $Netbios = $Domain_Name.ToUpper().Split(".")[0]
 #Add a new tree domain to an existing forest
 Import-Module ADDSDeployment
 Install-ADDSDomain `
--NoGlobalCatalog:$false `
--CreateDnsDelegation:$false `
--Credential (Get-Credential Administrator@$Root_Domain) `
--DatabasePath "C:\Windows\NTDS" `
--DomainMode "WinThreshold" `
--DomainType "TreeDomain" `
--InstallDns:$true `
--LogPath "C:\Windows\NTDS" `
--NewDomainName $Domain_Name `
--NewDomainNetbiosName $Netbios `
--ParentDomainName $Root_Domain `
--NoRebootOnCompletion:$false `
--SiteName $SiteName `
--SysvolPath "C:\Windows\SYSVOL" `
--Force:$true `
--SafeModeAdministratorPassword (convertto-securestring $DSRM_password -asplaintext -force)
+  -NoGlobalCatalog:$false `
+  -CreateDnsDelegation:$false `
+  -Credential (Get-Credential Administrator@$Root_Domain) `
+  -DatabasePath "C:\Windows\NTDS" `
+  -DomainMode "WinThreshold" `
+  -DomainType "TreeDomain" `
+  -InstallDns:$true `
+  -LogPath "C:\Windows\NTDS" `
+  -NewDomainName $Domain_Name `
+  -NewDomainNetbiosName $Netbios `
+  -ParentDomainName $Root_Domain `
+  -NoRebootOnCompletion:$false `
+  -SiteName $SiteName `
+  -SysvolPath "C:\Windows\SYSVOL" `
+  -Force:$true `
+  -SafeModeAdministratorPassword (convertto-securestring $DSRM_password -asplaintext -force)
